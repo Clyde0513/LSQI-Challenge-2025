@@ -1,24 +1,20 @@
 import numpy as np
 
-def interpolate_nan_intervals(arr):
+from numpy.typing import NDArray
+
+def interpolate_nan_intervals(arr: NDArray) -> NDArray:
     """
     Replace intervals of NaN values in a numpy array with linearly interpolated values
     from the first and last non-NaN values surrounding the interval using np.interp.
     
-    Parameters:
-    -----------
-    arr : numpy.ndarray
-        Input array that may contain NaN values
+    Arguments:
+        arr (NDArray): Input array that may contain NaN values
         
     Returns:
-    --------
-    numpy.ndarray
-        Array with NaN intervals replaced by linearly interpolated values
-        
+        NDArray with NaN intervals replaced by linearly interpolated values
+
     Raises:
-    -------
-    ValueError
-        If the first or last element of the array is NaN
+        ValueError if the first or last element of the array is NaN
     """
     # Make a copy to avoid modifying the original
     result = np.copy(arr)
